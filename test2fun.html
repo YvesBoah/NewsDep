@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<meta charset="utf-8">
+</head>
+<body ng-app="">
+<form>
+  Select a topic:
+  <select ng-model="myVar">
+   <option value="ABIDJAN" >ABIDJAN
+    <option value="PARIS">PARIS
+    <option value="Marseille">Marseille
+  </select>
+</form>
+
+<div ng-switch="myVar">
+
+  <div ng-switch-when="ABIDJAN">
+
+     <h1>ABIDJAN</h1>     <!-- Espace Map -->
+        
+         <style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-x4Ijsx1AX3INQ6MJl23wmdjxbls9BE8&callback=initMap">
+    </script>
+  </div>
+  <div ng-switch-when="PARIS">
+
+     <h1>Paris City</h1><!-- Espace Map -->
+
+  </div>
+  <div ng-switch-when="Marseille">
+
+     <h1>Marseille</h1>
+ <style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-x4Ijsx1AX3INQ6MJl23wmdjxbls9BE8&callback=initMap">
+    </script>
+
+     <p>Read about Marseille.</p><!-- Espace Map -->
+
+  </div>
+
+</div>
+
+
+<p>exemple de map generer </p>
+
+</body>
+</html>

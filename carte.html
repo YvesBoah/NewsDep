@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html >
+<head>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<meta charset="utf-8">
+
+</head>
+
+<style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+
+<body ng-app="NewsModule">
+
+
+
+	<div  ng-controller="Controller_Map">
+		<p>Choisir une Ville :</p>
+		<form action="" >  
+			<select ng-model="Ville_Map"  ng-options="x for (x, y) in cars">
+			</select>
+			<button type="submit">Afficher carte</button>
+		</form>
+		<h1>Récupération du model : {{Ville_Map}}</h1> 
+		<div id="map"></div>
+		<div id="map2"></div>
+		<div id="map3"></div>
+		<div id="map4"></div>
+
+
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-x4Ijsx1AX3INQ6MJl23wmdjxbls9BE8&callback=initMap">
+    </script>
+	</div>
+	<script>
+		var app = angular.module('NewsModule', []);
+		app.controller('Controller_Map', function($scope) {
+			$scope.cars = {
+				ABIDJAN :"La carte d'Abidjan",        
+				PARIS : "La carte de PARIS",
+				NEWSYORK : "La carte de NEWS YORK",
+				Marseille : "La carte de Marseille"
+			}
+
+
+		});
+	</script>
+
+	
+</body>
+</html>
